@@ -29,6 +29,7 @@ if (!function_exists('display_home')) {
 				$classes = "col-xs-".$colwidth." col-sm-".$colwidth." col-md-".$colwidth." col-lg-".$colwidth." content";
 				echo "<div class='row'>";
 				foreach($content['data'] as $data) {
+					/*
 					echo "<div class='".$classes." clearfix'>";
 					echo "<h3><a href='".$data['url']."'>".$data['title']."</a></h3>";
 					echo "<div class='small m-b-10'>".$data['meta']."</div>";
@@ -36,6 +37,18 @@ if (!function_exists('display_home')) {
 					echo "</div>";
 				}
 				echo "</div>";
+				*/
+				
+	       echo "<div class='".$classes." clearfix'>";
+//Modification, /themes/templates/global/home.php, Kvido, 29.01.2016
+               echo "<h3><a href='".$data['url']."'>".trimlink($data['title'], 55)."</a></h3>";
+//Konec
+
+               echo "<div class='small m-b-10'>".$data['meta']."</div>";
+//Modification, /themes/templates/global/home.php, Kvido, 29.01.2016
+               echo "<div class='overflow-hide'>".trimlink($data['content'], 200)."</div>";
+//Konec
+               echo "</div>";
 			} else {
 				echo $content['norecord'];
 			}
