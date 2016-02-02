@@ -238,7 +238,9 @@ if (!function_exists('render_news')) {
 			echo "</div>\n";
 			echo "<div class='panel-body' ".(empty($info['news_image']) ? "style='min-height:221px;'" : "style='min-height:133px;'")." >\n";
 			echo ($info['news_sticky']) ? "<i class='pull-right entypo ialert icon-sm'></i>\n" : '';
-			echo "<h4 class='news-title panel-title'><a class='strong text-dark' href='".INFUSIONS."news/news.php?readmore=".$info['news_id']."' >".$info['news_subject']."</a></h4>\n";
+			
+			
+			echo "<h4 class='news-title panel-title'><a class='strong text-dark' href='".INFUSIONS."news/news.php?readmore=".$info['news_id']."' >".trimlink(strip_tags(stripslashes($info['news_subject'])), 43)."</a></h4>\n";
 			echo "<div class='news-text m-t-5' style='height:200px;'>".trim_text(strip_tags($info['news_news']), 250)."</div>\n";
 			echo "<div class='news-date m-t-5'>".showdate("newsdate", $info['news_date'])."</div>\n";
 			echo "<div class='news-category m-t-5'><span class='text-dark strong'>\n".ucwords($locale['in'])."</span> : ";
